@@ -1,0 +1,4 @@
+softmoth/zsh-vim-mode
+unixorn/fzf-zsh-plugin
+zdharma/fast-syntax-highlighting
+zsh-users/zsh-autosuggestions
