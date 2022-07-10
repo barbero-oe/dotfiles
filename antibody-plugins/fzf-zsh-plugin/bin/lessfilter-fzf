@@ -1,0 +1,21 @@
+#! /usr/bin/env sh
+
+
+# Based on https://github.com/Aloxaf/fzf-tab/wiki/Preview
+# Also from https://github.com/unixorn/fzf-zsh-plugin/blob/main/bin/lessfilter-fzf
+
+
+mime=$(file -bL --mime-type "$1")
+category=${mime%%/*}
+kind=${mime##*/}
+if [ -d "$1" ]; then
+	exa --git -hl --color=always --icons "$1"
+elif [ "$category" = image ]; then
+        chafa --format symbols --size 80x25 "$1"
+	exiftool "$1"
+else
+	bat --color=always "$1"
+	exiftool "$1"
+fi
+# lesspipe.sh don't use exa, bat and chafa, it use ls and exiftool. so we create a lessfilter.
+

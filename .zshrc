@@ -11,6 +11,19 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+# Z
+# > brew install z
+# source /usr/local/etc/profile.d/z.sh
+
+# FZF
+# source "$HOME/.fzf.zsh"
+#export FZF_PREVIEW=1
+export FZF_PREVIEW_WINDOW="default"
+export FZF_PREVIEW_ADVANCED=true
+
 # Zsh Plugins
 # Using [Antibody](https://getantibody.github.io/)
 # > brew install antibody
@@ -20,16 +33,6 @@ source "$HOME/.zsh_plugins.sh"
 bindkey '^ ' autosuggest-accept
 # CLI env info [StarShip](https://starship.rs/)
 eval "$(starship init zsh)"
-
-# z + fzf
-# > brew install z
-source /usr/local/etc/profile.d/z.sh
-unalias z
-j() {
-  [ $# -gt 0 ] && _z "$*" && return
-  cd "$(_z -l 2>&1 | fzf --height 40% --nth 2.. --reverse --inline-info +s --tac --query "${*##-* }" | sed 's/^[0-9,.]* *//')"
-}
-alias z="j"
 
 # Volta - https://volta.sh/
 # Node and related shims
@@ -57,6 +60,7 @@ alias l="exa -1a"
 alias ll="exa -la"
 alias less="less --ignore-case"
 # alias doom="~/.emacs.d/bin/doom"
+alias j="z"
 
 # git
 alias st="git status"
@@ -71,3 +75,14 @@ alias ckr="git checkout release"
 alias lg="git lg"
 alias gd="git diff"
 alias gds="git diff --staged"
+
+pv() {
+  preview="git diff --color=always $@ -- {-1}"
+  git diff --name-only $@ | fzf -m --ansi --preview $preview
+}
+
+pvs() {
+  preview="git diff --staged --color=always $@ -- {-1}"
+  git diff --name-only --staged $@ | fzf -m --ansi --preview $preview
+}
+

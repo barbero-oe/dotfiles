@@ -39,4 +39,5 @@ set number
 " let g:nord_cursor_line_number_background = 1
 
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+set smartcase
 
