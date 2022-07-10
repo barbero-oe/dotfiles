@@ -41,7 +41,10 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 # Python shims and virtual envs
 # https://github.com/pyenv/pyenv
 # https://github.com/pyenv/pyenv-virtualenv
+
 export PYENV_ROOT="$HOME/.pyenv"
+# Hides python version name. StarShip already takes care of this
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
@@ -52,6 +55,7 @@ alias vim="nvim"
 alias ls="exa -a"
 alias l="exa -1a"
 alias ll="exa -la"
+alias less="less --ignore-case"
 # alias doom="~/.emacs.d/bin/doom"
 
 # git
@@ -65,3 +69,5 @@ alias ckn="git checkout main"
 alias ckd="git checkout develop"
 alias ckr="git checkout release"
 alias lg="git lg"
+alias gd="git diff"
+alias gds="git diff --staged"
