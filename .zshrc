@@ -114,3 +114,7 @@ pvs() {
   git diff --name-only --staged $@ | fzf -m --ansi --preview $preview
 }
 
+img() {
+    chafa $(fd --extension png -e jpg -e jpeg -e gif | fzf)
+}
+
