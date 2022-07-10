@@ -1,5 +1,6 @@
 agkozak/zsh-z
 softmoth/zsh-vim-mode
+Aloxaf/fzf-tab
 zdharma/fast-syntax-highlighting
 zsh-users/zsh-autosuggestions
 unixorn/fzf-zsh-plugin

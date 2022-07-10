@@ -21,8 +21,32 @@ export VISUAL="nvim"
 # FZF
 # source "$HOME/.fzf.zsh"
 #export FZF_PREVIEW=1
-export FZF_PREVIEW_WINDOW="default"
-export FZF_PREVIEW_ADVANCED=true
+# Custom fzf options to set the theme to light
+# Also, it loads the function lessfilter-fzf located in
+# fzf-zsh-plugin/bin/lessfilter-fzf
+fzf_default_opts+=(
+    "--layout=reverse"
+    "--info=inline"
+    "--height=80%"
+    "--multi"
+    "--preview='lessfilter-fzf {}'"
+    "--preview-window='default'"
+    "--color='light'"
+    "--prompt='∼ '"
+    "--pointer='▶'"
+    "--marker='✓'"
+    "--bind '?:toggle-preview'"
+    "--bind 'ctrl-a:select-all'"
+    "--bind 'ctrl-e:execute(vim {+} >/dev/tty)'"
+    "--bind 'ctrl-v:execute(code {+})'"
+)
+export FZF_DEFAULT_OPTS=$(printf '%s\n' "${fzf_default_opts[@]}")
+# export FZF_PREVIEW_WINDOW="default"
+# export FZF_PREVIEW_ADVANCED=true
+
+# fzf-tab autocomplation of commands
+# Sets default color to black. White would be: '\033[37m'
+zstyle ':fzf-tab:*' default-color $'\033[30m'
 
 # Zsh Plugins
 # Using [Antibody](https://getantibody.github.io/)
@@ -75,6 +99,8 @@ alias ckr="git checkout release"
 alias lg="git lg"
 alias gd="git diff"
 alias gds="git diff --staged"
+alias ga="git add ."
+alias gm="git commit -m "
 
 pv() {
   preview="git diff --color=always $@ -- {-1}"

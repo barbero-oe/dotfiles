@@ -33,3 +33,7 @@ antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 
 Fzf is installed by the plugin `unixorn/fzf-zsh-plugin`
 
+# Warning
+
+Do not change the order of `.zsh_plugins.txt`. The load order of the plugins is
+important.
