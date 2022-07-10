@@ -7,7 +7,7 @@
 " :PlugInstall
 call plug#begin(stdpath('data') . '/plugged')
 Plug 'vim-airline/vim-airline'
-Plug 'arcticicestudio/nord-vim'
+" Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-repeat'
@@ -20,9 +20,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme='nord'
-" let g:airline_theme='light'
-colorscheme nord
+" let g:airline_theme='nord'
+let g:airline_theme='light'
+" colorscheme nord
 " let g:gruvbox_italic = 1
 " colorscheme gruvbox
 nmap s <Plug>(easymotion-overwin-f2)
