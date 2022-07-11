@@ -17,32 +17,34 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'easymotion/vim-easymotion'
-Plug 'preservim/nerdtree'
-" Plug 'ctrlpvim/ctrlp.vim'
+Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'machakann/vim-highlightedyank'
+Plug 'google/vim-jsonnet'
 call plug#end()
 
-let g:airline_powerline_fonts = 1
-" let g:airline_theme='nord'
-let g:airline_theme='light'
-" colorscheme nord
-" let g:gruvbox_italic = 1
-" colorscheme gruvbox
-nmap s <Plug>(easymotion-overwin-f2)
-let g:EasyMotion_smartcase = 1
-nnoremap <C-m> :NERDTreeToggle<CR>
+set ignorecase
+set smartcase
+set number
+" set relativenumber
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+" Weird MacOS fix. It can't copy spcecial characters
 set fileencoding=utf-8
 lang en_US.UTF-8
 
-" let g:ctrlp_user_command = 'fd --type file'
+nnoremap <C-m> :NERDTreeToggle<CR>
+let g:NERDTreeGitStatusUseNerdFonts = 1
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme='light'
+
+nmap s <Plug>(easymotion-overwin-f2)
+let g:EasyMotion_smartcase = 1
+
+
 let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.8, 'yoffset': 1.0 } }
 let fzf_options = { 'source': 'fd --type file --hidden' }
 nnoremap <C-p> :call fzf#run(fzf#wrap(fzf_options))<CR>
 
-set number
-" set relativenumber
-
-" let g:nord_cursor_line_number_background = 1
-
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
-set smartcase
+let g:highlightedyank_highlight_duration = 400
 
