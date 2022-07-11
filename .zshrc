@@ -115,7 +115,7 @@ pvs() {
 }
 
 img() {
-    local imgs=(`fd --extension png -e jpg -e jpeg -e gif | fzf`)
+    local imgs=("`fd --extension png -e jpg -e jpeg -e gif | fzf`")
     for img_path in $imgs; do
         chafa "$img_path" 
         echo "$img_path"
