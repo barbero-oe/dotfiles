@@ -11,8 +11,10 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-export EDITOR="nvim"
-export VISUAL="nvim"
+export EDITOR=nvim
+export VISUAL=nvim
+export NVM_AUTO_USE=true
+export NVM_LAZY_LOAD=true
 
 # Z
 # > brew install z
@@ -59,42 +61,65 @@ bindkey '^ ' autosuggest-accept
 # CLI env info [StarShip](https://starship.rs/)
 eval "$(starship init zsh)"
 
-# Volta - https://volta.sh/
-# Node and related shims
-# curl https://get.volta.sh | zsh
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+if [[ -d "$HOME/.volta" ]]; then
+    # Volta - https://volta.sh/
+    # Node and related shims
+    # curl https://get.volta.sh | zsh
+    export VOLTA_HOME="$HOME/.volta"
+    export PATH="$VOLTA_HOME/bin:$PATH"
+fi
 
-# Pyenv
-# Python shims and virtual envs
-# https://github.com/pyenv/pyenv
-# https://github.com/pyenv/pyenv-virtualenv
-
-export PYENV_ROOT="$HOME/.pyenv"
-# Hides python version name. StarShip already takes care of this
-export VIRTUAL_ENV_DISABLE_PROMPT=1
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if [[ -d "$HOME/.pyenv" ]]; then
+    # Pyenv
+    # Python shims and virtual envs
+    # https://github.com/pyenv/pyenv
+    # https://github.com/pyenv/pyenv-virtualenv
+    export PYENV_ROOT="$HOME/.pyenv"
+    # Hides python version name. StarShip already takes care of this
+    export VIRTUAL_ENV_DISABLE_PROMPT=1
+    command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
 
 ### Aliases ###
 alias vim="nvim"
-alias ls="exa -a"
-alias l="exa -1a"
-alias ll="exa -la"
+alias vimdiff='nvim -d'
+alias ls='exa --all'
+alias l='exa --oneline --all'
+alias ll='exa --long --all'
 alias tree="exa --tree"
 alias less="less --ignore-case"
 # alias doom="~/.emacs.d/bin/doom"
 alias j="z"
 alias cdr='cd "$(project-root)"'
+alias rg='rg --smart-case'
 
 cdf() {
     local dir="$(fd --type directory | fzf)"
     [[ -d "$dir" ]] && cd "$dir"
 }
 
+# Kubernetes
+alias k="kubectl"
+alias kd="kubectl get deployments"
+alias kdd="kubectl describe deployment"
+alias kp="kubectl get pods"
+alias kdp="kubectl describe pod"
+alias kl="kubectl logs"
+alias kj="kubectl get jobs"
+alias kdj="kubectl describe job"
+alias ks="kubectl get services"
+alias kds="kubectl describe service"
+alias kh="kubectl get hpa"
+alias kdh="kubectl describe hpa"
+alias kn="kubectl get namespaces"
+alias kdn="kubectl describe namespace"
+alias kpf="kubectl port-forward"
+
 # git
 alias st="git status"
+alias br='git branch'
 alias gps="git push"
 alias gpl="git pull"
 alias gpf="git fetch"
@@ -139,5 +164,21 @@ img() {
     done
 
 }
+
+# ❯ jq -n --arg foo boo '$ARGS.named'
+# { "foo": "boo" }
+# 
+# ❯ jq -n --arg foo boo '$ARGS.named' > foo.json
+# 
+# ❯ echo "$<foo.json "
+# { "foo": "boo" }
+
+
+if [[ -d "$HOME/.sdkman" ]]; then
+    #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+    export SDKMAN_DIR="$HOME/.sdkman"
+    [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+fi
+
 
 [[ -f "$HOME/.local_custom_settings" ]] && source "$HOME/.local_custom_settings" 
