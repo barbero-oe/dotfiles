@@ -78,7 +78,6 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 ### Aliases ###
-
 alias vim="nvim"
 alias ls="exa -a"
 alias l="exa -1a"
@@ -87,6 +86,12 @@ alias tree="exa --tree"
 alias less="less --ignore-case"
 # alias doom="~/.emacs.d/bin/doom"
 alias j="z"
+alias cdr='cd "$(project-root)"'
+
+cdf() {
+    local dir="$(fd --type directory | fzf)"
+    [[ -d "$dir" ]] && cd "$dir"
+}
 
 # git
 alias st="git status"
@@ -104,13 +109,25 @@ alias gds="git diff --staged"
 alias ga="git add ."
 alias gm="git commit -m "
 
+project-root() {
+    local dir_path="$(realpath "${1:-.}")"
+    while ! [[ -d "$dir_path/.git" ]]; do
+        if [ "$dir_path" = '/' ] || [ "$dir_path" = "" ]; then
+            return 1
+        fi
+        dir_path="$(dirname "$dir_path")"
+    done
+    echo "$dir_path"
+}
+
 pv() {
-  preview="git diff --color=always $@ -- {-1}"
+  local preview="git diff --color=always $@ -- "$(project-root)/{-1}""
+  local names=("`git diff --name-only $@`")
   git diff --name-only $@ | fzf -m --ansi --preview $preview
 }
 
 pvs() {
-  preview="git diff --staged --color=always $@ -- {-1}"
+  local preview="git diff --staged --color=always $@ -- "$(project-root)/{-1}""
   git diff --name-only --staged $@ | fzf -m --ansi --preview $preview
 }
 

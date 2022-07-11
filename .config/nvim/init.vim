@@ -8,6 +8,7 @@
 call plug#begin(stdpath('data') . '/plugged')
 Plug 'vim-airline/vim-airline'
 " Plug 'arcticicestudio/nord-vim'
+Plug '~/.fzf'
 Plug 'morhetz/gruvbox'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-repeat'
@@ -17,7 +18,7 @@ Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'easymotion/vim-easymotion'
 Plug 'preservim/nerdtree'
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 let g:airline_powerline_fonts = 1
@@ -32,7 +33,10 @@ nnoremap <C-m> :NERDTreeToggle<CR>
 set fileencoding=utf-8
 lang en_US.UTF-8
 
-let g:ctrlp_user_command = 'fd --type file'
+" let g:ctrlp_user_command = 'fd --type file'
+let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.8, 'yoffset': 1.0 } }
+let fzf_options = { 'source': 'fd --type file --hidden' }
+nnoremap <C-p> :call fzf#run(fzf#wrap(fzf_options))<CR>
 
 set number
 " set relativenumber
