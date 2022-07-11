@@ -123,3 +123,4 @@ img() {
 
 }
 
+[[ -f "$HOME/.local_custom_settings" ]] && source "$HOME/.local_custom_settings" 
