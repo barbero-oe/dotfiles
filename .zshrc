@@ -136,7 +136,7 @@ alias gm="git commit -m "
 
 project-root() {
     local dir_path="$(realpath "${1:-.}")"
-    while ! [[ -d "$dir_path/.git" ]]; do
+    while ! [[ -e "$dir_path/.git" ]]; do
         if [ "$dir_path" = '/' ] || [ "$dir_path" = "" ]; then
             return 1
         fi
