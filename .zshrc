@@ -33,7 +33,7 @@ fzf_default_opts+=(
     "--multi"
     "--preview='lessfilter-fzf {}'"
     "--preview-window='default'"
-    "--color='light'"
+    "--color='dark'"
     "--prompt='∼ '"
     "--pointer='▶'"
     "--marker='✓'"
@@ -47,8 +47,10 @@ export FZF_DEFAULT_OPTS=$(printf '%s\n' "${fzf_default_opts[@]}")
 # export FZF_PREVIEW_ADVANCED=true
 
 # fzf-tab autocomplation of commands
-# Sets default color to black. White would be: '\033[37m'
-zstyle ':fzf-tab:*' default-color $'\033[30m'
+# Sets default color to black.
+# White would be: $'\033[37m'
+# Black would be: $'\033[30m'
+zstyle ':fzf-tab:*' default-color $'\033[37m'
 zstyle ':fzf-tab:*' fzf-flags '--preview-window=hidden'
 
 # Zsh Plugins
@@ -85,10 +87,10 @@ fi
 ### Aliases ###
 alias vim="nvim"
 alias vimdiff='nvim -d'
-alias ls='exa --all'
-alias l='exa --oneline --all'
-alias ll='exa --long --all'
-alias tree="exa --tree"
+alias ls='exa --all --classify'
+alias l='exa --oneline --all --classify'
+alias ll='exa --long --all --classify'
+alias tree="exa --tree --icons"
 alias less="less --ignore-case"
 # alias doom="~/.emacs.d/bin/doom"
 alias j="z"
