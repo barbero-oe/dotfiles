@@ -9,7 +9,8 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'vim-airline/vim-airline'
 " Plug 'arcticicestudio/nord-vim'
 Plug '~/.fzf'
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
+" Plug 'rakr/vim-one'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -36,11 +37,7 @@ let g:NERDTreeGitStatusUseNerdFonts = 1
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-" let g:airline_theme='light'
 
-let g:gruvbox_italic=1
-colorscheme gruvbox
-let g:airline_theme='gruvbox'
 
 nmap s <Plug>(easymotion-overwin-f2)
 let g:EasyMotion_smartcase = 1
@@ -51,4 +48,24 @@ let fzf_options = { 'source': 'fd --type file --hidden' }
 nnoremap <C-p> :call fzf#run(fzf#wrap(fzf_options))<CR>
 
 let g:highlightedyank_highlight_duration = 400
+
+" True colors
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set termguicolors
+
+" Themes
+" Default
+let g:airline_theme='light'
+
+" rakr/vim-one
+" set background=light
+" let g:one_allow_italics = 1
+" colorscheme one
+" let g:airline_theme='one'
+
+" morhetz/gruvbox
+" let g:gruvbox_italic=1
+" colorscheme gruvbox
+" let g:airline_theme='gruvbox'
+
 
