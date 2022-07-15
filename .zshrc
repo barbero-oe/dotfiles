@@ -183,4 +183,5 @@ if [[ -d "$HOME/.sdkman" ]]; then
 fi
 
 
+[[ -d "$HOME/bin" ]] && export PATH="$PATH:$HOME/bin" 
 [[ -f "$HOME/.local_custom_settings" ]] && source "$HOME/.local_custom_settings" 
