@@ -136,6 +136,10 @@ alias gds="git diff --staged"
 alias ga="git add ."
 alias gm="git commit -m "
 
+ckb() {
+    git checkout $(git branch | fzf)
+}
+
 project-root() {
     local dir_path="$(realpath "${1:-.}")"
     while ! [[ -e "$dir_path/.git" ]]; do

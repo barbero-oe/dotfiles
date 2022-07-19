@@ -68,4 +68,6 @@ let g:airline_theme='light'
 " colorscheme gruvbox
 " let g:airline_theme='gruvbox'
 
-
+" nord
+" colorscheme nord
+" let g:airline_theme='nord'
