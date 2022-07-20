@@ -9,6 +9,7 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'vim-airline/vim-airline'
 " Plug 'arcticicestudio/nord-vim'
 Plug '~/.fzf'
+Plug 'sainnhe/sonokai'
 " Plug 'morhetz/gruvbox'
 " Plug 'rakr/vim-one'
 Plug 'ryanoasis/vim-devicons'
@@ -50,7 +51,7 @@ nnoremap <C-p> :call fzf#run(fzf#wrap(fzf_options))<CR>
 let g:highlightedyank_highlight_duration = 400
 
 " True colors
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors
 
 " Themes
@@ -71,3 +72,7 @@ let g:airline_theme='light'
 " nord
 " colorscheme nord
 " let g:airline_theme='nord'
+
+" Sonokai
+" colorscheme sonokai
+" let g:sonokai_style = 'atlantis'

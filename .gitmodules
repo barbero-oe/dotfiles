@@ -1,3 +1,6 @@
 [submodule ".config/kitty/kitty-themes"]
 	path = .config/kitty/kitty-themes
 	url = git@github.com:dexpota/kitty-themes.git
+[submodule ".config/kitty/sonokai-kitty"]
+	path = .config/kitty/sonokai-kitty
+	url = git@github.com:rsaihe/sonokai-kitty.git
