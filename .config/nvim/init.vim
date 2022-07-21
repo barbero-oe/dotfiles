@@ -22,6 +22,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'machakann/vim-highlightedyank'
 Plug 'google/vim-jsonnet'
+Plug 'doums/darcula'
+Plug 'dracula/vim'
 call plug#end()
 
 set ignorecase
@@ -56,7 +58,7 @@ set termguicolors
 
 " Themes
 " Default
-let g:airline_theme='light'
+" let g:airline_theme='light'
 
 " rakr/vim-one
 " set background=light
@@ -76,3 +78,10 @@ let g:airline_theme='light'
 " Sonokai
 " colorscheme sonokai
 " let g:sonokai_style = 'atlantis'
+
+" Darcula
+colorscheme darcula
+let g:airline_theme='atomic'
+
+" Dracula
+" colorscheme dracula
