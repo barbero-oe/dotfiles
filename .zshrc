@@ -59,7 +59,11 @@ zstyle ':fzf-tab:*' fzf-flags '--preview-window=hidden'
 # List the plugins in ~/.zsh_plugins.txt and to static load them:
 # > antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 source "$HOME/.zsh_plugins.sh"
+
+# Autosuggest
 bindkey '^ ' autosuggest-accept
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080"
+
 # CLI env info [StarShip](https://starship.rs/)
 eval "$(starship init zsh)"
 
