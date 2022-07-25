@@ -33,7 +33,7 @@ fzf_default_opts+=(
     "--multi"
     "--preview='lessfilter-fzf {}'"
     "--preview-window='default'"
-    "--color='dark'"
+    "--color='light'"
     "--prompt='∼ '"
     "--pointer='▶'"
     "--marker='✓'"

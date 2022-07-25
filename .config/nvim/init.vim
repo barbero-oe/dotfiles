@@ -9,7 +9,7 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'vim-airline/vim-airline'
 " Plug 'arcticicestudio/nord-vim'
 Plug '~/.fzf'
-Plug 'sainnhe/sonokai'
+" Plug 'sainnhe/sonokai'
 " Plug 'morhetz/gruvbox'
 " Plug 'rakr/vim-one'
 Plug 'ryanoasis/vim-devicons'
@@ -22,8 +22,10 @@ Plug 'easymotion/vim-easymotion'
 Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'machakann/vim-highlightedyank'
 Plug 'google/vim-jsonnet'
-Plug 'doums/darcula'
-Plug 'dracula/vim'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'arzg/vim-colors-xcode'
+" Plug 'doums/darcula'
+" Plug 'dracula/vim'
 call plug#end()
 
 set ignorecase
@@ -58,7 +60,7 @@ set termguicolors
 
 " Themes
 " Default
-" let g:airline_theme='light'
+let g:airline_theme='light'
 
 " rakr/vim-one
 " set background=light
@@ -80,8 +82,18 @@ set termguicolors
 " let g:sonokai_style = 'atlantis'
 
 " Darcula
-colorscheme darcula
-let g:airline_theme='atomic'
+" colorscheme darcula
+" let g:airline_theme='atomic'
 
 " Dracula
 " colorscheme dracula
+
+" PaperColor
+set background=light
+colorscheme PaperColor
+let g:airline_theme='papercolor'
+
+" XCode
+" colorscheme xcodelight
+" " colorscheme xcodelighthc
+" let g:airline_theme='xcodelight'
