@@ -50,7 +50,7 @@ export FZF_DEFAULT_OPTS=$(printf '%s\n' "${fzf_default_opts[@]}")
 # Sets default color to black.
 # White would be: $'\033[37m'
 # Black would be: $'\033[30m'
-zstyle ':fzf-tab:*' default-color $'\033[30m'
+zstyle ':fzf-tab:*' default-color $'\033[37m'
 zstyle ':fzf-tab:*' fzf-flags '--preview-window=hidden'
 
 # Zsh Plugins
@@ -63,6 +63,9 @@ source "$HOME/.zsh_plugins.sh"
 # Autosuggest
 bindkey '^ ' autosuggest-accept
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080"
+
+# Color theme for fd and other tools. It needs 'vivid'
+export LS_COLORS=$(vivid generate one-light)
 
 # CLI env info [StarShip](https://starship.rs/)
 eval "$(starship init zsh)"

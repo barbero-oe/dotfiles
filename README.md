@@ -33,7 +33,16 @@ antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 
 Fzf is installed by the plugin `unixorn/fzf-zsh-plugin`
 
+# FD
+
+To change the colors of `fd` and other commands I use [vivid](https://github.com/sharkdp/vivid)
+
+```sh
+brew install vivid
+```
+
 # Warning
 
 Do not change the order of `.zsh_plugins.txt`. The load order of the plugins is
 important.
+

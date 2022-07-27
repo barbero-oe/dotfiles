@@ -24,7 +24,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'google/vim-jsonnet'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'arzg/vim-colors-xcode'
-
+Plug 'vimwiki/vimwiki'
 " Plug 'doums/darcula'
 " Plug 'dracula/vim'
 call plug#end()
