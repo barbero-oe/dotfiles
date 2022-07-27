@@ -50,7 +50,7 @@ export FZF_DEFAULT_OPTS=$(printf '%s\n' "${fzf_default_opts[@]}")
 # Sets default color to black.
 # White would be: $'\033[37m'
 # Black would be: $'\033[30m'
-zstyle ':fzf-tab:*' default-color $'\033[30m'
+zstyle ':fzf-tab:*' default-color $'\033[37m'
 zstyle ':fzf-tab:*' fzf-flags '--preview-window=hidden'
 
 # Zsh Plugins
