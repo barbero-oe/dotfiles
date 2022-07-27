@@ -54,6 +54,9 @@ nnoremap <C-p> :call fzf#run(fzf#wrap(fzf_options))<CR>
 
 let g:highlightedyank_highlight_duration = 400
 
+" Saving with S
+nnoremap S :w<CR>
+
 " True colors
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors
