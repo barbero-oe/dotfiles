@@ -24,6 +24,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'google/vim-jsonnet'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'arzg/vim-colors-xcode'
+
 " Plug 'doums/darcula'
 " Plug 'dracula/vim'
 call plug#end()
@@ -36,6 +37,8 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 " Weird MacOS fix. It can't copy spcecial characters
 set fileencoding=utf-8
 lang en_US.UTF-8
+nnoremap <SPACE> <Nop>
+let mapleader = ' '
 
 nnoremap <C-m> :NERDTreeToggle<CR>
 let g:NERDTreeGitStatusUseNerdFonts = 1
@@ -56,6 +59,7 @@ let g:highlightedyank_highlight_duration = 400
 
 " Saving with S
 nnoremap S :w<CR>
+
 
 " True colors
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
