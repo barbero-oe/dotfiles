@@ -37,8 +37,6 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 " Weird MacOS fix. It can't copy spcecial characters
 set fileencoding=utf-8
 lang en_US.UTF-8
-nnoremap <SPACE> <Nop>
-let mapleader = ' '
 
 nnoremap <C-m> :NERDTreeToggle<CR>
 let g:NERDTreeGitStatusUseNerdFonts = 1
