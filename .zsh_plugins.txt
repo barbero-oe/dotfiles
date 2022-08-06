@@ -1,3 +1,4 @@
+romkatv/powerlevel10k
 lukechilds/zsh-nvm
 agkozak/zsh-z
 softmoth/zsh-vim-mode

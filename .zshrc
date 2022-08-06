@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=10000
@@ -50,7 +57,7 @@ export FZF_DEFAULT_OPTS=$(printf '%s\n' "${fzf_default_opts[@]}")
 # Sets default color to black.
 # White would be: $'\033[37m'
 # Black would be: $'\033[30m'
-zstyle ':fzf-tab:*' default-color $'\033[37m'
+zstyle ':fzf-tab:*' default-color $'\033[30m'
 zstyle ':fzf-tab:*' fzf-flags '--preview-window=hidden'
 
 # Zsh Plugins
@@ -68,7 +75,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080"
 export LS_COLORS=$(vivid generate one-light)
 
 # CLI env info [StarShip](https://starship.rs/)
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 
 if [[ -d "$HOME/.volta" ]]; then
     # Volta - https://volta.sh/
@@ -197,3 +204,6 @@ fi
 [[ -d "$HOME/bin" ]] && export PATH="$PATH:$HOME/bin" 
 [[ -f "$HOME/.local_custom_settings" ]] && source "$HOME/.local_custom_settings" 
 [[ -f "$HOME/.local_custom_envs" ]] && source "$HOME/.local_custom_envs" 
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

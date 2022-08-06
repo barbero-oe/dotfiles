@@ -94,9 +94,9 @@ let g:airline_theme='light'
 " colorscheme dracula
 
 " PaperColor
-set background=light
-colorscheme PaperColor
-let g:airline_theme='papercolor'
+" set background=light
+" colorscheme PaperColor
+" let g:airline_theme='papercolor'
 
 " XCode
 " colorscheme xcodelight
