@@ -27,6 +27,7 @@ Plug 'arzg/vim-colors-xcode'
 Plug 'vimwiki/vimwiki'
 " Plug 'doums/darcula'
 " Plug 'dracula/vim'
+Plug 'cormacrelf/vim-colors-github'
 call plug#end()
 
 set ignorecase
@@ -65,7 +66,7 @@ set termguicolors
 
 " Themes
 " Default
-let g:airline_theme='light'
+" let g:airline_theme='light'
 
 " rakr/vim-one
 " set background=light
@@ -102,3 +103,7 @@ let g:airline_theme='light'
 " colorscheme xcodelight
 " " colorscheme xcodelighthc
 " let g:airline_theme='xcodelight'
+
+" GitHub
+colorscheme github
+let g:airline_theme = "github"

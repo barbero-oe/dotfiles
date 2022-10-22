@@ -72,7 +72,7 @@ bindkey '^ ' autosuggest-accept
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080"
 
 # Color theme for fd and other tools. It needs 'vivid'
-export LS_COLORS=$(vivid generate one-light)
+# export LS_COLORS=$(vivid generate one-light)
 
 # CLI env info [StarShip](https://starship.rs/)
 # eval "$(starship init zsh)"
@@ -105,7 +105,8 @@ alias ls='exa --all --classify'
 alias l='exa --oneline --all --classify'
 alias ll='exa --long --all --classify'
 alias tree="exa --tree --icons"
-alias less="less --ignore-case"
+alias ss="less --ignore-case"
+alias ppy="yq --prettyPrint | bat --language yaml"
 # alias doom="~/.emacs.d/bin/doom"
 alias j="z"
 alias cdr='cd "$(project-root)"'
@@ -131,6 +132,8 @@ alias kh="kubectl get hpa"
 alias kdh="kubectl describe hpa"
 alias kn="kubectl get namespaces"
 alias kdn="kubectl describe namespace"
+alias ki="kubectl get ingress"
+alias kdi="kubectl describe ingress"
 alias kpf="kubectl port-forward"
 
 # git
@@ -145,6 +148,7 @@ alias ckn="git checkout main"
 alias ckd="git checkout develop"
 alias ckr="git checkout release"
 alias lg="git lg"
+alias lgs="git lg1-specific"
 alias gd="git diff"
 alias gds="git diff --staged"
 alias ga="git add ."
@@ -202,6 +206,7 @@ fi
 
 
 [[ -d "$HOME/bin" ]] && export PATH="$PATH:$HOME/bin" 
+[[ -d "$HOME/go/bin" ]] && export PATH="$PATH:$HOME/go/bin" 
 [[ -f "$HOME/.local_custom_settings" ]] && source "$HOME/.local_custom_settings" 
 [[ -f "$HOME/.local_custom_envs" ]] && source "$HOME/.local_custom_envs" 
 
