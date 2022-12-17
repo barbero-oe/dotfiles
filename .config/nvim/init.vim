@@ -22,8 +22,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'machakann/vim-highlightedyank'
 Plug 'google/vim-jsonnet'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'arzg/vim-colors-xcode'
+" Plug 'NLKNguyen/papercolor-theme'
+" Plug 'arzg/vim-colors-xcode'
 Plug 'vimwiki/vimwiki'
 " Plug 'doums/darcula'
 " Plug 'dracula/vim'
@@ -105,5 +105,6 @@ set termguicolors
 " let g:airline_theme='xcodelight'
 
 " GitHub
+set background=light
 colorscheme github
 let g:airline_theme = "github"
