@@ -5,4 +5,5 @@ return {
     { 'tpope/vim-surround' },
     { 'tpope/vim-commentary' },
     { 'tpope/vim-sleuth' },
+    { 'vim-scripts/argtextobj.vim' },
 }

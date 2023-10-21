@@ -1,4 +1,6 @@
 vim.g.mapleader = " "
+vim.g.loaded_python3_provider = 0
+
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.number = true
