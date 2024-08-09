@@ -1,6 +1,0 @@
-[submodule ".config/kitty/sonokai-kitty"]
-	path = .config/kitty/sonokai-kitty
-	url = git@github.com:rsaihe/sonokai-kitty.git
-[submodule ".config/kitty/dracula"]
-	path = .config/kitty/dracula
-	url = https://github.com/dracula/kitty.git
