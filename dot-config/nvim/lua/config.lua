@@ -17,11 +17,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- Tabs
-vim.opt.tabstop = 8
-vim.opt.softtabstop = 0
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 4
-vim.opt.smarttab = true
+-- vim.opt.tabstop = 8
+-- vim.opt.softtabstop = 0
+-- vim.opt.expandtab = true
+-- vim.opt.shiftwidth = 4
+-- vim.opt.smarttab = true
 
 -- " Weird MacOS fix. It can't copy special characters
 vim.opt.fileencoding = 'utf-8'

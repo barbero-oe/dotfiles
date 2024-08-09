@@ -1,0 +1,111 @@
+#!/bin/sh
+install_if_missing() {
+  local package="$1"
+  local command_name="${2:-$package}"
+  if ! type "$command_name" &> /dev/null ; then
+    brew install "$package"
+  fi
+}
+
+# ZSH Plugin Manager
+if [ ! -e "$(brew --prefix)/opt/antidote/share/antidote/antidote.zsh" ]; then
+  install_if_missing antidote
+fi
+source "$(brew --prefix)/opt/antidote/share/antidote/antidote.zsh"
+zstyle ':antidote:bundle' use-friendly-names 'yes'
+# loads .zsh_plugins.txt
+antidote load
+
+# The plugin will auto execute this zvm_after_lazy_keybindings function
+bindkey '^ ' autosuggest-accept
+
+install_if_missing fzf
+source <(fzf --zsh)
+
+install_if_missing starship
+eval "$(starship init zsh)"
+
+# Install Z command (keep last)
+install_if_missing zoxide
+eval "$(zoxide init zsh)"
+
+install_if_missing nvim
+export EDITOR=nvim
+export VISUAL=nvim
+
+install_if_missing tmux
+
+install_if_missing asdf
+source /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+install_if_missing tldr
+install_if_missing eza
+install_if_missing bat
+install_if_missing ripgrep rg
+install_if_missing fd
+
+### Aliases ###
+alias vim=nvim
+alias vimdiff='nvim -d'
+
+alias ls=eza
+alias ls='eza --all --classify'
+alias l='eza --oneline --all --classify'
+alias ll='eza --long --all --classify'
+alias tree="eza --tree --icons"
+
+alias j="z"
+
+alias ss="less --ignore-case"
+alias ppy="yq --prettyPrint | bat --language yaml"
+alias cdr='cd "$(peoject_root)"'
+alias rg='rg --smart-case'
+
+cdf() {
+    local dir="$(fd --type directory | fzf)"
+    [[ -d "$dir" ]] && cd "$dir"
+}
+
+# Kubernetes
+alias k="kubectl"
+alias kd="kubectl get deployments"
+alias kdd="kubectl describe deployment"
+alias kp="kubectl get pods"
+alias kdp="kubectl describe pod"
+alias kl="kubectl logs"
+alias kj="kubectl get jobs"
+alias kdj="kubectl describe job"
+alias ks="kubectl get services"
+alias kds="kubectl describe service"
+alias kh="kubectl get hpa"
+alias kdh="kubectl describe hpa"
+alias kn="kubectl get namespaces"
+alias kdn="kubectl describe namespace"
+alias ki="kubectl get ingress"
+alias kdi="kubectl describe ingress"
+alias kpf="kubectl port-forward"
+
+# git
+alias st="git status"
+alias br='git branch'
+alias gps="git push"
+alias gpl="git pull"
+alias gpf="git fetch"
+alias ck="git checkout"
+alias ckm="git checkout master"
+alias ckn="git checkout main"
+alias ckd="git checkout develop"
+alias ckr="git checkout release"
+alias lg="git lg"
+alias lgs="git lg1-specific"
+alias gd="git diff"
+alias gds="git diff --staged"
+alias ga="git add ."
+alias gm="git commit -m "
+
+ckb() {
+    git checkout $(git branch | fzf)
+}
+
+export PATH="$PATH:$HOME/.config/sh_functions"
+[[ -f "$HOME/.local_env" ]] && source "$HOME/.local_env"
