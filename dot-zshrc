@@ -16,8 +16,28 @@ zstyle ':antidote:bundle' use-friendly-names 'yes'
 # loads .zsh_plugins.txt
 antidote load
 
+# Loads completions
+autoload -U compinit && compinit
+
+# Sets autocompletions history between all instances
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST="$HISTSIZE"
+# Removes duplicates
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
 # The plugin will auto execute this zvm_after_lazy_keybindings function
+bindkey -v
 bindkey '^ ' autosuggest-accept
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
 
 install_if_missing fzf
 source <(fzf --zsh)
