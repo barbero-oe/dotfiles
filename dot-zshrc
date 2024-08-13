@@ -8,10 +8,10 @@ install_if_missing() {
 }
 
 # ZSH Plugin Manager
-if [ ! -e "$(brew --prefix)/opt/antidote/share/antidote/antidote.zsh" ]; then
+if [ ! -e "$(brew --prefix antidote)/share/antidote/antidote.zsh" ]; then
   install_if_missing antidote
 fi
-source "$(brew --prefix)/opt/antidote/share/antidote/antidote.zsh"
+source "$(brew --prefix antidote)/share/antidote/antidote.zsh"
 zstyle ':antidote:bundle' use-friendly-names 'yes'
 # loads .zsh_plugins.txt
 antidote load
