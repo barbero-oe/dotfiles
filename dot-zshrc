@@ -42,9 +42,6 @@ bindkey '^n' history-search-forward
 install_if_missing fzf
 source <(fzf --zsh)
 
-install_if_missing starship
-eval "$(starship init zsh)"
-
 # Install Z command (keep last)
 install_if_missing zoxide
 eval "$(zoxide init zsh)"
@@ -63,6 +60,11 @@ install_if_missing eza
 install_if_missing bat
 install_if_missing ripgrep rg
 install_if_missing fd
+
+install_if_missing starship
+eval "$(starship init zsh)"
+# install_if_missing "jandedobbeleer/oh-my-posh/oh-my-posh" "oh-my-posh"
+# eval "$(oh-my-posh init zsh)"
 
 ### Aliases ###
 alias vim=nvim
