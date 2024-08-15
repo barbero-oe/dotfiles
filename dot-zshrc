@@ -71,9 +71,9 @@ alias vim=nvim
 alias vimdiff='nvim -d'
 
 alias ls=eza
-alias ls='eza --all --classify'
-alias l='eza --oneline --all --classify'
-alias ll='eza --long --all --classify'
+alias ls='eza --all'
+alias l='eza --oneline --all'
+alias ll='eza --long --all'
 alias tree="eza --tree --icons"
 
 alias j="z"
