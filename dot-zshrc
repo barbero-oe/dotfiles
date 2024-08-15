@@ -74,7 +74,7 @@ alias ls=eza
 alias ls='eza --all'
 alias l='eza --oneline --all'
 alias ll='eza --long --all'
-alias tree="eza --tree --icons"
+alias tree='eza --tree'
 
 alias j="z"
 
