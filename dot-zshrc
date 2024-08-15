@@ -71,10 +71,10 @@ alias vim=nvim
 alias vimdiff='nvim -d'
 
 alias ls=eza
-alias ls='eza --all'
-alias l='eza --oneline --all'
-alias ll='eza --long --all'
-alias tree='eza --tree'
+alias ls='eza --all --classify=auto --icons=auto'
+alias l='eza --oneline --all --classify=auto --icons=auto'
+alias ll='eza --long --all --classify=auto --icons=auto'
+alias tree='eza --tree --classify=auto --icons=auto'
 
 alias j="z"
 
