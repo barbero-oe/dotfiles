@@ -41,10 +41,7 @@ bindkey '^n' history-search-forward
 
 install_if_missing fzf
 # Delays initialization until vi mode is initialized
-function fzf_init() {
-  source <(fzf --zsh)
-}
-zvm_after_init_commands+=(fzf_init)
+zvm_after_init_commands+=('source <(fzf --zsh)')
 
 # Install Z command (keep last)
 install_if_missing zoxide
