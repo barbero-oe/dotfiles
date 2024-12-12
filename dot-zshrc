@@ -71,6 +71,10 @@ eval "$(starship init zsh)"
 alias vim=nvim
 alias vimdiff='nvim -d'
 
+function vman() {
+  nvim -c "Man $1" -c "only"
+}
+
 alias ls=eza
 alias ls='eza --all --classify=auto --icons=auto'
 alias l='eza --oneline --all --classify=auto --icons=auto'
@@ -125,6 +129,9 @@ alias gd="git diff"
 alias gds="git diff --staged"
 alias ga="git add ."
 alias gm="git commit -m "
+
+alias nocolor="sed -Ee 's/\x1b\[[0-9;]*[mGKHF]//g'"
+alias noco="sed -Ee 's/\x1b\[[0-9;]*[mGKHF]//g'"
 
 ckb() {
     git checkout $(git branch | fzf)
