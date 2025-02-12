@@ -130,8 +130,8 @@ alias gds="git diff --staged"
 alias ga="git add ."
 alias gm="git commit -m "
 
-alias nocolor="sed -Ee 's/\x1b\[[0-9;]*[mGKHF]//g'"
-alias noco="sed -Ee 's/\x1b\[[0-9;]*[mGKHF]//g'"
+alias nocolor='sed -Ee "s/\x1b\[[0-9;*]*[mGKHF]//g"'
+alias noco='sed -Ee "s/\x1b\[[0-9;*]*[mGKHF]//g"'
 
 ckb() {
     git checkout $(git branch | fzf)
