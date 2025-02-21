@@ -1,7 +1,6 @@
 return {
     { 'tpope/vim-commentary' },
     { 'tpope/vim-repeat' },
-    { 'tpope/vim-repeat' },
     { 'tpope/vim-sensible' },
     { 'tpope/vim-sleuth' },
     { 'tpope/vim-surround' },
