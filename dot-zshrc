@@ -38,6 +38,7 @@ bindkey -v
 bindkey '^ ' autosuggest-accept
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6E6F70"
 
 install_if_missing fzf
 # Delays initialization until vi mode is initialized
