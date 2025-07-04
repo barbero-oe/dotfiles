@@ -2,3 +2,7 @@
 	path = dot-config/kitty/nightfox.nvim
 	url = git@github.com:EdenEast/nightfox.nvim.git
 	shallow = true
+[submodule "dot-config/ghostty/nightfox.nvim"]
+	path = dot-config/ghostty/nightfox.nvim
+	url = git@github.com:EdenEast/nightfox.nvim.git
+	shallow = true
