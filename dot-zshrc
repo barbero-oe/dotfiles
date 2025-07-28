@@ -138,5 +138,5 @@ ckb() {
     git checkout $(git branch | fzf)
 }
 
-export PATH="$PATH:$HOME/.config/sh_functions"
+export PATH="$HOME/.local/bin:$PATH"
 [[ -f "$HOME/.local_env" ]] && source "$HOME/.local_env"

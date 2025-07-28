@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+if [[ -f "$1" ]]; then
+    FILE="$1"
+elif [[ ! -t 0 ]]; then
+    FILE="/dev/stdin"
+else
+    echo "Expected filename or pipe input"
+    exit 1
+fi
+
+IFS= read -r line < $FILE
+IFS=$'\t' read -ra HEADERS < <(csv-to-tsv <<< "$line")
+IFS=$'\n' read -rd '' -a SELECTED < <(printf "%s\n" "${HEADERS[@]}" | fzf --multi --tac && printf "\0")
+
+COLUMNS=""
+for index in "${!HEADERS[@]}"; do
+    for value in "${SELECTED[@]}"; do
+        if [[ "${HEADERS[index]}" == "$value" ]]; then
+            COLUMNS+="-f$((index + 1)) "
+        fi
+    done
+done
+
+COMMAND="cut -d $'\t' $COLUMNS"
+
+{
+    printf "%s\t" "${HEADERS[@]}"
+    csv-to-tsv "$FILE"
+} | eval $COMMAND | column -t -s $'\t'
