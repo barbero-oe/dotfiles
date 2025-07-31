@@ -62,6 +62,7 @@ install_if_missing bat
 install_if_missing ripgrep rg
 install_if_missing fd
 install_if_missing just
+install_if_missing parallel
 
 install_if_missing starship
 eval "$(starship init zsh)"
