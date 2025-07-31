@@ -1,4 +1,4 @@
-restow: init
+restow: update
 	stow --dotfiles --ignore 'dot-local|Makefile' --target ~ --restow .
 	stow --dotfiles --ignore 'dot-config|Makefile' --no-folding --target ~ --restow .
 stow: init
@@ -7,5 +7,5 @@ stow: init
 delete:
 	stow --dotfiles --ignore 'dot-local|Makefile' --target ~ --delete .
 	stow --dotfiles --ignore 'dot-config|Makefile' --no-folding --target ~ --delete .
-init:
-	git submodule update --init
+update:
+	git submodule update --init --recursive --filter=blob:none
