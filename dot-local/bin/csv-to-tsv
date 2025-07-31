@@ -9,26 +9,22 @@ else
     exit 1
 fi
 
-while IFS=, read -ra fields; do
-    item=""
-    concat=false
-    items=()
-    for field in "${fields[@]}" ; do
-        if [[ "$field" =~ ^\".* ]]; then
-            concat=true
-            item="${field#\"}"
+while IFS= read -r line; do
+    item="" in_quotes=0 items=()
+    for (( i=0; i<${#line}; i++ )); do
+        char="${line:$i:1}"
+        if [[ "$char" == '"' ]]; then
+            in_quotes=$((1 - in_quotes))
             continue
-        elif [[ "$field" =~ \"$ ]]; then
-            concat=false
-            item+=",${field%\"}"
-        elif [[ $concat == true  ]]; then
-            item+=",$field"
+        elif [[ "$char" == ","  ]] && (( !in_quotes )); then
+            items+=("$item")
+            item=""
+            continue
         else
-            item="$field"
+            item+="$char"
         fi
-        items+=("$item")
-        item=""
     done
+    [[ -n "$item" ]] && items+=("$item")
     printf "%s\t" "${items[@]}"
     printf "\n"
  done < "$FILE"
